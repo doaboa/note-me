@@ -1,0 +1,23 @@
+{
+  "name": "note-me",
+  "version": "0.0.0",
+  "description": "Pull up a list of relevant chords based on the song you want to write",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/doaboa/note-me.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/doaboa/note-me/issues"
+  },
+  "dependencies": {
+    "browserify": "~9.0.3",
+    "react": "~0.13.0",
+    "reactify": "~1.0.0"
+  }
+}
