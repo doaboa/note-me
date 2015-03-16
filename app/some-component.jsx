@@ -1,6 +1,12 @@
 // require react
 var React = require('React')
 
+// css
+var divStyle = {
+  color: 'blue',
+  backgroundColor: 'yellow'
+};
+
 // module.exports to make accessible via require one component per file for cleanliness
 module.exports = React.createClass({
   // function to call and change states
@@ -18,7 +24,7 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div className="commentList">
-        <h1>Howdy, {this.props.text}.</h1>
+        <h1 style={divStyle}>Howdy, {this.props.text}.</h1>
         <p onClick={this.tellClicked}>{this.state.text}</p>
       </div>
     )
