@@ -1,1 +1,1 @@
-web: node lib/branchy-pic.js
+web: node server.js
