@@ -13,6 +13,7 @@ var redTop = {
 
 module.exports = React.createClass({
   render: function() {
+    console.log(this.props.chords)
     return (
       <div>
         <div style={redTop} />

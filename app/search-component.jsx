@@ -22,7 +22,7 @@ module.exports = React.createClass({
     return {
       position: 'absolute',
       top: tags[this.state.search] ? '20%' : '50%',
-      left: '5%',
+      left: '14.5%',
       transition: 'top 0.5s',
       fontSize: '3em',
       lineHeight: '1.25em'
