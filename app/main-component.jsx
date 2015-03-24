@@ -13,12 +13,12 @@ var redTop = {
 
 module.exports = React.createClass({
   render: function() {
-    console.log(this.props.chords)
+    var chords = this.props.chords
     return (
       <div>
         <div style={redTop} />
         <section>
-          <SearchComponent />
+          <SearchComponent chords={chords} />
         </section>
       </div>
     )

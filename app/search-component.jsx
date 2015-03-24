@@ -1,7 +1,8 @@
 // require react
 var React = require('React')
+var _ = require('lodash')
 var SuggestionComponent = require('./suggestion-component.jsx')
-var tags = require('./tags')
+var ResultComponent = require('./result-component.jsx')
 
 module.exports = React.createClass({
   tellClicked: function(){
@@ -18,10 +19,10 @@ module.exports = React.createClass({
       focus: true
     })
   },
-  getStyle: function(){
+  getStyle: function(searchMatches){
     return {
       position: 'absolute',
-      top: tags[this.state.search] ? '20%' : '50%',
+      top: searchMatches ? '20%' : '50%',
       left: '14.5%',
       transition: 'top 0.5s',
       fontSize: '3em',
@@ -40,6 +41,15 @@ module.exports = React.createClass({
       paddingLeft: '5px'
     }
   },
+  getResultStyle: function(){
+    return {
+      position: 'absolute',
+      bottom: '20%',
+      right: '14.5%',
+      fontSize: '3.5em',
+      color: 'grey'
+    }
+  },
   handleSearchChange: function(e) {
     this.setState({
       search: e.target.value
@@ -47,17 +57,32 @@ module.exports = React.createClass({
   },
   render: function() {
     var suggestionComponent
-    if (!tags[this.state.search]) {
-      suggestionComponent = <SuggestionComponent hidden={!this.state.focus} search={this.state.search} />
+    var resultComponent
+    var searchMatches = _.some(this.props.chords, function (chord) {
+      return _.contains(chord.tags, this.state.search)
+    }, this)
+    var matchedChords = _.filter(this.props.chords, function (chord) {
+      return _.contains(chord.tags, this.state.search)
+    }, this)
+
+    if (!searchMatches) {
+      suggestionComponent = <SuggestionComponent hidden={!this.state.focus} search={this.state.search} chords={this.props.chords} />
     }
+    if (searchMatches) {
+      resultComponent = <ResultComponent hidden={!matchedChords.length} chords={matchedChords} />
+    } 
+
     return (
-      <form style={this.getStyle()} onFocus={this.focus}>
+      <div className='searchComponent'>
+      <form style={this.getStyle(searchMatches)} onFocus={this.focus}>
         I want to write a <br />
         <input style={this.getInputStyle()} 
           type='text' name='feeling' className='accent' 
           onChange={this.handleSearchChange} /> song.
         {suggestionComponent}
       </form>
+      <div style={this.getResultStyle()} className='serif'>Try the {resultComponent} scale.</div>
+      </div>
     )
   }
 })

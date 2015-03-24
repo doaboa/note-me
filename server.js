@@ -13,7 +13,6 @@ app.get('/', function (req, res) {
 app.get('/chords', function (req, res) {
   // Connect to mongo and res.json() the chords
   db.getAllChords(function (chords) {
-    console.log(chords)
     res.json(chords)
   })
 })

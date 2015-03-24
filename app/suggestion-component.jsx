@@ -1,5 +1,5 @@
 var React = require('React')
-var tags = Object.keys(require('./tags'))
+var _ = require('lodash')
 
 module.exports = React.createClass({
   getTagStyle: function(){
@@ -14,7 +14,12 @@ module.exports = React.createClass({
     }
   },
   render: function() {
-    var tagDisplay = tags
+    var tagDisplay = _.chain(this.props.chords)
+      .map(function (chord) {
+        return chord.tags
+      })
+      .flatten()
+      .uniq()
       .filter(function(tag){
         if (!this.props.search) return true
         return tag.indexOf(this.props.search) > -1
@@ -22,6 +27,7 @@ module.exports = React.createClass({
       .map(function(tag){
         return <span key={tag} style={this.getTagStyle()} >{tag}</span>
       }, this)
+      .value()
     return (
       <div className='accent'>{tagDisplay}</div>
     )
