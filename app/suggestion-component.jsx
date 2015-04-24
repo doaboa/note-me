@@ -7,7 +7,6 @@ module.exports = React.createClass({
       fontSize: '0.5em',
       color: 'rgba(3, 3, 3, 0.45)',
       marginLeft: '1em',
-      marginTop: '2.5em',
       display: 'inline-block',
       opacity: this.props.hidden ? 0 : 1,
       transition: 'opacity 1s'
@@ -25,7 +24,7 @@ module.exports = React.createClass({
         return tag.indexOf(this.props.search) > -1
       }, this)
       .map(function(tag){
-        return <span key={tag} style={this.getTagStyle()} >{tag}</span>
+        return <span key={tag} style={this.getTagStyle()} onClick={this.props.onTagClick.bind(this, tag)}>{tag}</span>
       }, this)
       .value()
     return (
@@ -33,3 +32,10 @@ module.exports = React.createClass({
     )
   }
 })
+
+// function x (a, b) {
+//   console.log(arguments)
+// }
+
+// var z = x.bind({ y: 'hello', g: 'meoow' }, 1, 2)
+// z(6, 7)

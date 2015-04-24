@@ -28,18 +28,18 @@ module.exports = {
       { name : 'Seventh', tags: ['funky', 'soulful'], suffix: '7' },
       { name : 'Major Seventh', tags: ['peaceful', 'soft', 'love'], suffix: 'M7' }, 
       { name : 'Minor Seventh', tags: ['moody', 'mellow', 'jazzy'], suffix: 'm7' }, 
-      { name : 'Ninth', tags: ['optimistic'], suffix: '9' },
+      { name : 'Ninth', tags: ['hopeful'], suffix: '9' },
       { name : 'Diminished', tags: ['scary', 'shocking'], suffix: 'º' }, 
-      { name : 'Suspended Fourth', tags: ['suspenseful'], suffix: 'sus4' }, 
+      { name : 'Suspended Fourth', tags: ['thrilling'], suffix: 'sus4' }, 
       { name : 'Minor Ninth', tags: ['creepy', 'ominous'], suffix: '♭9' },
       { name : 'Added Ninth', tags: ['serious'], suffix: 'add9' }
     ], function(err, result) {
       console.log("did")
     })
   },
-  removeAllChords: function () {
-    collection.remove({}, function() {
-      console.log("removed")
+  removeAllChords: function (done) {
+    collection.remove({}, function(err) {
+      done()
     })
   }
 }
