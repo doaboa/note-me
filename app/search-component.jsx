@@ -38,13 +38,14 @@ module.exports = React.createClass({
       width: '10%',
       paddingRight: '0.25em',
       outline: 'none',
-      paddingLeft: '5px'
+      paddingLeft: '5px',
+      backgroundColor: 'transparent'
     }
   },
   getResultStyle: function(){
     return {
       position: 'absolute',
-      bottom: '20%',
+      top: '50%',
       right: '14.5%',
       fontSize: '3.5em',
       color: 'grey',

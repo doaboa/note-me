@@ -8,7 +8,8 @@ var redTop = {
   height: '10px',
   position: 'absolute',
   top: 0,
-  left: 0
+  left: 0,
+  color: '#D2CCA1'
 };
 
 module.exports = React.createClass({
