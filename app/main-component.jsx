@@ -1,6 +1,5 @@
 var React = require('React')
 var SearchComponent = require('./search-component.jsx')
-var ResultComponent = require('./result-component.jsx')
 
 var redTop = {
   backgroundColor: '#c0392b',
@@ -10,10 +9,10 @@ var redTop = {
   top: 0,
   left: 0,
   color: '#D2CCA1'
-};
+}
 
 module.exports = React.createClass({
-  render: function() {
+  render: function () {
     var chords = this.props.chords
     return (
       <div>

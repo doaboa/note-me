@@ -2,7 +2,7 @@ var React = require('React')
 var _ = require('lodash')
 
 module.exports = React.createClass({
-  render: function() {
+  render: function () {
     var scaleDisplay = _.map(this.props.chords, function (chord) {
       return chord.name
     }, this)
@@ -15,7 +15,7 @@ module.exports = React.createClass({
       padding: '1em 0.75em',
       display: 'inline-block'
     }
-    var chordDisplay = _.map(['C', 'D', 'E', 'F', 'G', 'A', 'B'], function(n) {
+    var chordDisplay = _.map(['C', 'D', 'E', 'F', 'G', 'A', 'B'], function (n) {
       return <li key={n} style={littleChords}>{n}{suffixDisplay}</li>
     })
     return (

@@ -4,21 +4,17 @@ var SuggestionComponent = require('./suggestion-component.jsx')
 var ResultComponent = require('./result-component.jsx')
 
 module.exports = React.createClass({
-  tellClicked: function(){
-    this.setState({
-    })
-  },
-  getInitialState: function(){
+  getInitialState: function () {
     return {
       focus: false
     }
   },
-  focus: function(){
+  focus: function () {
     this.setState({
       focus: true
     })
   },
-  getStyle: function(searchMatches){
+  getStyle: function (searchMatches) {
     return {
       position: 'absolute',
       top: searchMatches ? '20%' : '50%',
@@ -29,7 +25,7 @@ module.exports = React.createClass({
       lineHeight: '1.25em'
     }
   },
-  getInputStyle: function(){
+  getInputStyle: function () {
     return {
       fontSize: '1em',
       border: '0',
@@ -42,7 +38,7 @@ module.exports = React.createClass({
       backgroundColor: 'transparent'
     }
   },
-  getResultStyle: function(){
+  getResultStyle: function () {
     return {
       position: 'absolute',
       top: '50%',
@@ -52,22 +48,22 @@ module.exports = React.createClass({
       textAlign: 'right'
     }
   },
-  getSuggestionStyle: function(){
+  getSuggestionStyle: function () {
     return {
       marginTop: '1.15em'
     }
   },
-  handleSearchChange: function(e) {
+  handleSearchChange: function (e) {
     this.setState({
       search: e.target.value
     })
   },
-  setSearch: function(tag) {
+  setSearch: function (tag) {
     this.setState({
       search: tag
     })
   },
-  render: function() {
+  render: function () {
     var suggestionComponent
     var resultComponent
     var searchMatches = _.some(this.props.chords, function (chord) {
@@ -82,13 +78,13 @@ module.exports = React.createClass({
     }
     if (searchMatches) {
       resultComponent = <ResultComponent hidden={!matchedChords.length} chords={matchedChords} />
-    } 
+    }
 
     return (
       <div className='searchComponent'>
       <form style={this.getStyle(searchMatches)} onFocus={this.focus}>
         I want to write a <br />
-        <input style={this.getInputStyle()} 
+        <input style={this.getInputStyle()}
           type='text' name='feeling' className='accent'
           value={this.state.search}
           onChange={this.handleSearchChange} /> song.
