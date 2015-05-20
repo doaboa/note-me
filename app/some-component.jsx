@@ -1,4 +1,3 @@
-// require react
 var React = require('React')
 
 // css

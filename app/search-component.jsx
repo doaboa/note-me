@@ -4,6 +4,10 @@ var SuggestionComponent = require('./suggestion-component.jsx')
 var ResultComponent = require('./result-component.jsx')
 
 module.exports = React.createClass({
+  displayName: 'Search',
+  propTypes: {
+    chords: React.PropTypes.array
+  },
   getInitialState: function () {
     return {
       focus: false
@@ -85,7 +89,7 @@ module.exports = React.createClass({
       <form style={this.getStyle(searchMatches)} onFocus={this.focus}>
         I want to write a <br />
         <input style={this.getInputStyle()}
-          type='text' name='feeling' className='accent'
+          type='text' name='feeling' className='accent' autoFocus='autofocus'
           value={this.state.search}
           onChange={this.handleSearchChange} /> song.
         <div style={this.getSuggestionStyle()}>{suggestionComponent}</div>

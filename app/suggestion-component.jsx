@@ -2,6 +2,13 @@ var React = require('React')
 var _ = require('lodash')
 
 module.exports = React.createClass({
+  displayName: 'Suggestion',
+  propTypes: {
+    hidden: React.PropTypes.bool,
+    chords: React.PropTypes.array,
+    search: React.PropTypes.string,
+    onTagClick: React.PropTypes.func
+  },
   getTagStyle: function () {
     return {
       fontSize: '0.5em',
@@ -24,7 +31,7 @@ module.exports = React.createClass({
         return tag.indexOf(this.props.search) > -1
       }, this)
       .map(function (tag) {
-        return <span key={tag} style={this.getTagStyle()} onClick={this.props.onTagClick.bind(this, tag)}>{tag}</span>
+        return <span key={tag} style={this.getTagStyle()} onClick={this.props.onTagClick.bind(null, tag)}>{tag}</span>
       }, this)
       .value()
     return (

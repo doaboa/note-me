@@ -12,6 +12,10 @@ var redTop = {
 }
 
 module.exports = React.createClass({
+  displayName: 'Main',
+  propTypes: {
+    chords: React.PropTypes.array
+  },
   render: function () {
     var chords = this.props.chords
     return (
